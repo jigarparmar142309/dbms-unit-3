@@ -1,0 +1,11 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    v_sal EMP.BasicSal%TYPE;
+BEGIN
+    SELECT BasicSal INTO v_sal FROM EMP WHERE Age = 45;
+    DBMS_OUTPUT.PUT_LINE('Salary: ' || v_sal);
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No Employee with Age 45');
+END;
+/
